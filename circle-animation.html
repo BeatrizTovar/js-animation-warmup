@@ -29,12 +29,12 @@
 
       let circles = new Array();
 
-      function Circle(angle, sign, radius, rotationRadius, intiialX, initialY) {
+      function Circle(angle, sign, radius, rotationRadius, initialX, initialY) {
         this.angle = angle;
         this.sign = sign;
         this.radius = radius;
         this.rotationRadius = rotationRadius;
-        this.intiialX = intiialX;
+        this.initialX = initialX;
         this.initialY = initialY;
         this.incrementer = 0.01 + Math.random() * 0.1;
       }
@@ -99,6 +99,18 @@
       }
 
       createCircles();
+      function draw() {
+        mainContext.clearRect(0, 0, canvasWidth, canvasHeight);
+        mainContext.fillStyle = "#f6f6f6";
+        mainContext.fillRect(0, 0, canvasWidth, canvasHeight);
+
+        for (let i = 0; i < circles.length; i++) {
+          let circle = circles[i];
+          circle.update();
+        }
+
+        requestAnimationFrame(draw);
+      }
     </script>
   </body>
 </html>
