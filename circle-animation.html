@@ -21,11 +21,84 @@
       let canvasWidth = mainCanvas.width;
       let canvasHeight = mainCanvas.height;
 
-      var requestAnimationFrame =
+      let requestAnimationFrame =
         window.requestAnimationFrame ||
         window.mozRequestAnimationFrame ||
         window.webkitRequestAnimationFrame ||
         window.msRequestAnimationFrame;
+
+      let circles = new Array();
+
+      function Circle(angle, sign, radius, rotationRadius, intiialX, initialY) {
+        this.angle = angle;
+        this.sign = sign;
+        this.radius = radius;
+        this.rotationRadius = rotationRadius;
+        this.intiialX = intiialX;
+        this.initialY = initialY;
+        this.incrementer = 0.01 + Math.random() * 0.1;
+      }
+
+      Circle.prototype.update = function() {
+        this.angle += this.incrementer;
+
+        this.currentX =
+          this.initialX + this.rotationRadius * Math.cos(this.angle);
+        this.currentY =
+          this.initialY + this.rotationRadius * Math.sin(this.angle);
+
+        if (this.angle >= Math.PI * 2) {
+          this.angle = 0;
+          this.incrementer = 0.01 + Math.random() * 0.1;
+        }
+
+        mainContext.beginPath();
+        mainContext.arc(
+          this.currentX,
+          this.currentY,
+          this.radius,
+          0,
+          Math.PI * 2,
+          false
+        );
+        mainContext.closePath();
+        mainContext.fillStyle = "rgba(0, 51, 204, .1)";
+        mainContext.fill();
+      };
+
+      function createCircles() {
+        for (let i = 0; i < 50; i++) {
+          let radius = 5 + Math.random() * 40;
+          let initialX = canvasWidth / 2;
+          let initialY = canvasHeight / 2;
+          let rotationRadius = 1 + Math.random() * 30;
+          let angle = Math.random() * 2 * Math.PI;
+
+          let signHelper = Math.floor(Math.random() * 2);
+          let sign = 0;
+
+          if (signHelper == 1) {
+            sign = -1;
+          } else {
+            sign = 1;
+          }
+
+          let circle = new Circle(
+            angle,
+            sign,
+            radius,
+            rotationRadius,
+            initialX,
+            initialY
+          );
+
+          circles.push(circle);
+        }
+
+        requestAnimationFrame(draw);
+      }
+
+      createCircles();
     </script>
   </body>
 </html>
