@@ -1,0 +1,31 @@
+#myCancas {
+  border-width: 1px;
+  border-style: dotted;
+  border-color: gray;
+}
+
+h1 {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: x-large;
+  color: #999;
+}
+
+body {
+  background-color: #fff;
+  padding: 40px;
+}
+
+p {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 11px;
+}
+
+a {
+  color: #3e99ca;
+  text-decoration: none;
+}
+
+a:hover {
+  background-color: #e2f0f8;
+  border-radius: 2px;
+}
