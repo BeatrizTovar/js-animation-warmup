@@ -13,9 +13,22 @@
     <div id="container">
       <canvas id="myCanvas" height="400" width="400"></canvas>
     </div>
+    <div>
+      <input type="text" id="red" value="" />
+      <button onclick="submitRed('red')" id="redButton">R</button>
+      <input type="text" id="red" value="" />
+      <button onclick="submitBlur('blue')" id="redButton">B</button>
+      <input type="text" id="red" value="" />
+      <button onclick="submitGreeen('green')" id="redButton">G</button>
+      <input type="text" id="red" value="" />
+      <button onclick="submitOpacity('opacity')" id="redButton">Opacity</button>
+    </div>
 
     <script>
+      //Reference to HtmlElement - #myCanvas -
       let mainCanvas = document.getElementById("myCanvas");
+
+      //Element's context where the drawing will be rendered (CanvasRenderdingContext2D)
       let mainContext = mainCanvas.getContext("2d");
 
       let canvasWidth = mainCanvas.width;
@@ -61,8 +74,13 @@
           Math.PI * 2,
           false
         );
+
+        let one = Math.floor(Math.random() * 100);
+        let two = Math.floor(Math.random() * 150);
+        let three = Math.floor(Math.random() * 200);
+        console.log(one, two, three);
         mainContext.closePath();
-        mainContext.fillStyle = "rgba(0, 51, 204, .1)";
+        mainContext.fillStyle = `rgba(${three}, ${one}, ${two}, .3)`;
         mainContext.fill();
       };
 
@@ -100,8 +118,13 @@
 
       createCircles();
       function draw() {
+        //clears a rectangular area starting at x,y,width, height sets to transparent black
         mainContext.clearRect(0, 0, canvasWidth, canvasHeight);
+
+        // fills the rectanfular area with a color, gradient, or pattern
         mainContext.fillStyle = "#f6f6f6";
+
+        //fills a rectangular area starting and x, y, widht, height
         mainContext.fillRect(0, 0, canvasWidth, canvasHeight);
 
         for (let i = 0; i < circles.length; i++) {
