@@ -15,16 +15,30 @@
     </div>
     <div>
       <input type="text" id="red" value="" />
-      <button onclick="submitRed('red')" id="redButton">R</button>
-      <input type="text" id="red" value="" />
-      <button onclick="submitBlur('blue')" id="redButton">B</button>
-      <input type="text" id="red" value="" />
-      <button onclick="submitGreeen('green')" id="redButton">G</button>
-      <input type="text" id="red" value="" />
-      <button onclick="submitOpacity('opacity')" id="redButton">Opacity</button>
+      <button type="button" onclick="submitValue('red')" id="submitButton">
+        R
+      </button>
+      <input type="text" id="blue" value="" />
+      <button type="button" onclick="submitValue('blue')" id="submitButton">
+        B
+      </button>
+      <input type="text" id="green" value="" />
+      <button type="button" onclick="submitValue('green')" id="submitButton">
+        G
+      </button>
+      <input type="text" id="opacity" value="" />
+      <button type="button" onclick="submitValue('opacity')" id="submitButton">
+        O
+      </button>
     </div>
 
     <script>
+      function submitValue(input) {
+        let value = document.getElementById(input).value;
+        console.log(value);
+      }
+
+      // --------------------CIRCLES--------------------
       //Reference to HtmlElement - #myCanvas -
       let mainCanvas = document.getElementById("myCanvas");
 
@@ -132,7 +146,7 @@
           circle.update();
         }
 
-        requestAnimationFrame(draw);
+        // requestAnimationFrame(draw);
       }
     </script>
   </body>
