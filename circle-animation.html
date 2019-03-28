@@ -14,28 +14,33 @@
       <canvas id="myCanvas" height="400" width="400"></canvas>
     </div>
     <div>
-      <input type="text" id="red" value="" />
+      <input type="text" id="red" value="0" onchange="readInput()" />
       <button type="button" onclick="submitValue('red')" id="submitButton">
         R
       </button>
-      <input type="text" id="blue" value="" />
+      <input type="text" id="blue" value="0" onchange="readInput()" />
       <button type="button" onclick="submitValue('blue')" id="submitButton">
         B
       </button>
-      <input type="text" id="green" value="" />
+      <input type="text" id="green" value="0" onchange="readInput()" />
       <button type="button" onclick="submitValue('green')" id="submitButton">
         G
-      </button>
-      <input type="text" id="opacity" value="" />
-      <button type="button" onclick="submitValue('opacity')" id="submitButton">
-        O
       </button>
     </div>
 
     <script>
+      let red = 0,
+        blue = 0,
+        green = 0;
       function submitValue(input) {
         let value = document.getElementById(input).value;
-        console.log(value);
+      }
+
+      function readInput() {
+        red = document.querySelector("#red").value;
+        blue = document.querySelector("#blue").value;
+        green = document.querySelector("#green").value;
+        // console.log(red);
       }
 
       // --------------------CIRCLES--------------------
@@ -89,22 +94,19 @@
           false
         );
 
-        let one = Math.floor(Math.random() * 100);
-        let two = Math.floor(Math.random() * 150);
-        let three = Math.floor(Math.random() * 200);
-        console.log(one, two, three);
+        console.log(red, blue, green);
         mainContext.closePath();
-        mainContext.fillStyle = `rgba(${three}, ${one}, ${two}, .3)`;
+        mainContext.fillStyle = `rgba(${red}, ${blue}, ${green}, .3)`;
         mainContext.fill();
       };
 
       function createCircles() {
         for (let i = 0; i < 50; i++) {
-          let radius = 5 + Math.random() * 40;
+          let radius = 5 + Math.random() * 4;
           let initialX = canvasWidth / 2;
           let initialY = canvasHeight / 2;
-          let rotationRadius = 1 + Math.random() * 30;
-          let angle = Math.random() * 2 * Math.PI;
+          let rotationRadius = 1 + Math.random() * 130;
+          let angle = Math.random() * 8 * Math.PI;
 
           let signHelper = Math.floor(Math.random() * 2);
           let sign = 0;
@@ -146,7 +148,7 @@
           circle.update();
         }
 
-        // requestAnimationFrame(draw);
+        requestAnimationFrame(draw);
       }
     </script>
   </body>
