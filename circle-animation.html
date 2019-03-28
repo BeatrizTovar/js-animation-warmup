@@ -37,11 +37,15 @@
         Randomize!
       </button>
     </div>
+    <button type="button" id="partyOn" class="randomButton" onclick="partyOn()">
+      Party!
+    </button>
 
     <script>
       let red = 0,
         blue = 0,
-        green = 0;
+        green = 0,
+        party = false;
 
       function readInput() {
         red = document.querySelector("#red").value;
@@ -53,6 +57,10 @@
         red = Math.floor(Math.random() * 255);
         blue = Math.floor(Math.random() * 255);
         green = Math.floor(Math.random() * 255);
+      }
+
+      function partyOn() {
+        party = true;
       }
       // --------------------CIRCLES--------------------
       //Reference to HtmlElement - #myCanvas -
@@ -106,6 +114,11 @@
         );
 
         console.log(red, blue, green);
+        if (party) {
+          red = Math.floor(Math.random() * 255);
+          blue = Math.floor(Math.random() * 255);
+          green = Math.floor(Math.random() * 255);
+        }
         mainContext.closePath();
         mainContext.fillStyle = `rgba(${red}, ${blue}, ${green}, .3)`;
         mainContext.fill();
