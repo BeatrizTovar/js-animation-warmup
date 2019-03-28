@@ -1,7 +1,8 @@
-#myCanas {
+#myCanvas {
   border-width: 1px;
-  border-style: dotted;
+  border-style: none;
   border-color: gray;
+  margin-bottom: 30px;
 }
 
 h1 {
@@ -28,4 +29,8 @@ a {
 a:hover {
   background-color: #e2f0f8;
   border-radius: 2px;
+}
+
+.randomButton {
+  margin-top: 30px;
 }

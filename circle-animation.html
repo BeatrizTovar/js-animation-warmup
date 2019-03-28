@@ -14,17 +14,27 @@
       <canvas id="myCanvas" height="400" width="400"></canvas>
     </div>
     <div>
-      <input type="text" id="red" value="0" onchange="readInput()" />
-      <button type="button" onclick="submitValue('red')" id="submitButton">
+      <label type="button" onclick="submitValue('red')" id="submitButton">
         R
-      </button>
-      <input type="text" id="blue" value="0" onchange="readInput()" />
-      <button type="button" onclick="submitValue('blue')" id="submitButton">
+      </label>
+      <input type="text" id="red" value="0" onchange="readInput()" />
+      <label type="button" onclick="submitValue('blue')" id="submitButton">
         B
-      </button>
-      <input type="text" id="green" value="0" onchange="readInput()" />
-      <button type="button" onclick="submitValue('green')" id="submitButton">
+      </label>
+      <input type="text" id="blue" value="0" onchange="readInput()" />
+      <label type="button" onclick="submitValue('green')" id="submitButton">
         G
+      </label>
+      <input type="text" id="green" value="0" onchange="readInput()" />
+    </div>
+    <div>
+      <button
+        type="button"
+        id="randomize"
+        class="randomButton"
+        onclick="randomize()"
+      >
+        Randomize!
       </button>
     </div>
 
@@ -32,17 +42,18 @@
       let red = 0,
         blue = 0,
         green = 0;
-      function submitValue(input) {
-        let value = document.getElementById(input).value;
-      }
 
       function readInput() {
         red = document.querySelector("#red").value;
         blue = document.querySelector("#blue").value;
         green = document.querySelector("#green").value;
-        // console.log(red);
       }
 
+      function randomize() {
+        red = Math.floor(Math.random() * 255);
+        blue = Math.floor(Math.random() * 255);
+        green = Math.floor(Math.random() * 255);
+      }
       // --------------------CIRCLES--------------------
       //Reference to HtmlElement - #myCanvas -
       let mainCanvas = document.getElementById("myCanvas");
