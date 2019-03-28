@@ -37,9 +37,25 @@
         Randomize!
       </button>
     </div>
-    <button type="button" id="partyOn" class="randomButton" onclick="partyOn()">
-      Party!
-    </button>
+
+    <div>
+      <button
+        type="button"
+        id="partyOn"
+        class="randomButton"
+        onclick="partyOn()"
+      >
+        Party On
+      </button>
+      <button
+        type="button"
+        id="partyOff"
+        class="randomButton"
+        onclick="partyOff()"
+      >
+        Party Off
+      </button>
+    </div>
 
     <script>
       let red = 0,
@@ -61,6 +77,9 @@
 
       function partyOn() {
         party = true;
+      }
+      function partyOff() {
+        party = false;
       }
       // --------------------CIRCLES--------------------
       //Reference to HtmlElement - #myCanvas -
