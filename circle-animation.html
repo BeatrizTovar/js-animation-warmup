@@ -155,7 +155,7 @@
             };
 
             function createCircles() {
-              for (let i = 0; i < 50; i++) {
+              for (let i = 0; i < 5; i++) {
                 let radius = 5 + Math.random() * 19;
                 let initialX = canvasWidth / 2;
                 let initialY = canvasHeight / 2;
@@ -189,14 +189,13 @@
 
             createCircles();
 
-            function randomizeCircleTrajectories(){
-
-
+      function randomizeCircleTrajectories(){
       for( let i = 0; i < circles.length; i++){
 
-        let updatedRadius = 1 + Math.random() * 130;
+        let updatedRadius = 1 + Math.random() * 200;
         circles[i].rotationRadius =  updatedRadius
       }
+      console.log(circles)
       }
 
             function draw() {
